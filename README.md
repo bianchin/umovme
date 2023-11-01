@@ -4,7 +4,7 @@
 
 
 
-
+### PROBLEM
 
 Calcule os seguintes descontos para as entradas dado o preço dos ingressos:
 
@@ -38,3 +38,13 @@ possui para todos os dias da semana, exceto finais de semana,
 35% de desconto em todos os ingressos;
 
 OBS2.: Descontos não são cumulativos
+
+### RUN
+mvn spring-boot:run
+
+### DOC
+http://localhost:8080/swagger-ui/index.html
+
+#### EXAMPLE
+
+curl --location 'http://localhost:8080/tickets?date=2023-10-12&type=SENIOR&hasCard=false'

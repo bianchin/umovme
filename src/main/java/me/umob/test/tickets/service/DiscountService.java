@@ -27,6 +27,7 @@ public class DiscountService {
     Logger logger = LoggerFactory.getLogger(DiscountService.class);
 
     public Double get(LocalDate date, TicketType ticketType, TicketCategory ticketCategory) {
+        logger.info("gettting {}, {}, {} ", date, ticketType, ticketCategory);
         boolean isHoliday = holidayService.isHoliday(date);
 
         return configFactoryService
@@ -44,7 +45,7 @@ public class DiscountService {
 
     private Double getDayDiscount(Week week, LocalDate date, boolean isHoliday) {
         Double discount = isHoliday ? week.getHoliday() : week.getDays().get(date.getDayOfWeek());
-        logger.info("discount: " + discount);
+        logger.debug("getDayDiscount is: {}", discount);
         return Optional.ofNullable(discount).map(this::validateDiscountValue).orElse(0d);
 
     }

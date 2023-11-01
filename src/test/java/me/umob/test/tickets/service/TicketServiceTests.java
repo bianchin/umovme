@@ -1,6 +1,7 @@
 package me.umob.test.tickets.service;
 
 import me.umob.test.tickets.dto.Ticket;
+import me.umob.test.tickets.dto.TicketCategory;
 import me.umob.test.tickets.dto.TicketType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class TicketServiceTests {
                 .builder()
                 .date(date)
                 .type(TicketType.STUDENT)
+                .category(TicketCategory.ALL)
                 .normalPrice(8d)
                 .discount(0.8d)
                 .finalPrice(7.2d)
@@ -40,6 +42,7 @@ public class TicketServiceTests {
                 .builder()
                 .date(date)
                 .type(TicketType.SENIOR)
+                .category(TicketCategory.ALL)
                 .normalPrice(6d)
                 .discount(0.6d)
                 .finalPrice(5.4d)
@@ -56,6 +59,7 @@ public class TicketServiceTests {
                 .builder()
                 .date(date)
                 .type(TicketType.CHILDREN)
+                .category(TicketCategory.ALL)
                 .normalPrice(5.5d)
                 .discount(0.55d)
                 .finalPrice(4.95d)

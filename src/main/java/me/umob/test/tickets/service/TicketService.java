@@ -26,17 +26,19 @@ public class TicketService {
     Logger logger = LoggerFactory.getLogger(TicketService.class);
 
     public Ticket get(LocalDate date, TicketType ticketType, boolean hasCard) {
-
+        logger.debug("getting {} {} {} ", date, ticketType, hasCard);
         Double price = ticketsConfig.getPrices().get(ticketType);
         Optional.ofNullable(price).orElseThrow(() -> new RuntimeException("Ticket unavailable"));
+        TicketCategory category = getCategory(ticketType, hasCard);
         Double totalDiscount = calcTotalDiscount(
                 price,
-                discountService.get(date, ticketType, getCategory(ticketType, hasCard)));
-
+                discountService.get(date, ticketType, category));
+        logger.debug("price: {} category: {} totalDiscount: {} ", price , category, totalDiscount);
         return Ticket
                 .builder()
                 .date(date)
                 .type(ticketType)
+                .category(category)
                 .normalPrice(price)
                 .discount(totalDiscount)
                 .finalPrice(price - totalDiscount)
