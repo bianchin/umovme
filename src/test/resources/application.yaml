@@ -1,0 +1,44 @@
+tickets:
+  prices:
+    children: 5.50
+    senior: 6.00
+    student: 8.00
+discount:
+  senior:
+    category:
+      all:
+        days:
+          monday: 10
+          tuesday: 15
+          wednesday: 40
+          thursday: 30
+          saturday: 5
+          sunday: 5
+        holiday: 5
+  children:
+    category:
+      all:
+        days:
+          monday: 10
+          tuesday: 15
+          wednesday: 30
+          friday: 11
+  student:
+    category:
+      all:
+        days:
+          monday: 10
+          tuesday: 5
+          wednesday: 50
+          thursday: 30
+      card:
+        days:
+          monday: 30
+          tuesday: 30
+          wednesday: 30
+          thursday: 30
+          friday: 30
+holidays:
+  days: ["2023-12-25", "2023-11-02", "2023-11-15", "2023-10-12"]
+
+
