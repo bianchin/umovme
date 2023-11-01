@@ -42,6 +42,15 @@ OBS2.: Descontos não são cumulativos
 ### RUN
 mvn spring-boot:run
 
+
+### RUN by Docker
+
+docker build  -t umovme .
+
+docker run -p 8080:8080 umovme
+
+
+
 ### DOC
 http://localhost:8080/swagger-ui/index.html
 
